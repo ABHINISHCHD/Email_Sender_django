@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<section style="width:70%;margin: auto;">
+<p style="font-size:50px;font-weight:bolder;margin-bottom:20px;">ENTER STAFF DETAIL</p>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button class="btn btn-success" style="float:right;">REGISTER</button>
+</form>
+</section>
+{% endblock content%}

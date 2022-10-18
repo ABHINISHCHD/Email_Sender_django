@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<p style="font-size:50px;font-weight:bolder;margin-bottom:20px;">STUDENTS</p>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for person in obj %}
+        <tr>
+        <th scope="row">{{person.id}}</th>
+        <td>{{person.name}}</td>
+        <td>{{person.email}}</td>
+        <td>{{person.phone}}</td>
+      </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+  <div style="display:flex;float: right;margin-top:20px;">
+    <a class="btn btn-success"  href="{% url 'application:student-form' %}">Add Member</a>
+    <a class="btn btn-success" style="margin-left:10px;" href="{% url 'application: message-form' 'student' %}">Send Message</a>
+  </div>
+{% endblock content%}

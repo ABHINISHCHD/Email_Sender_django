@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+        
+{%  block content %}
+<div > 
+{% if messages %}
+{% for mess in messages%}
+<div class="alert alert-success" role="alert">
+    <strong>{{mess}}</strong>
+</div>
+
+{% endfor %}
+{% endif %}
+<div style="width:80%;margin:60px auto">   
+    <p style="font-size:50px;font-weight:bolder;margin-bottom:20px;">SEND MAIL</p>
+
+    <form action="{% url 'application:send-mail' %}" method="POST">
+        {% csrf_token %}
+        <div style="display:flex;">
+           <input class="form-control" type="search" placeholder="Enter Email To Send Message" name="email">
+           <input class="form-control" style="margin-left:10px" type="text"  placeholder="Enter Subject" name="subject" >
+        </div>
+            <textarea style="margin-top:20px;height:300px;" class="form-control" placeholder="Enter your message" name="message"> </textarea>
+         <button class="btn btn-success" style="float:left;margin-top:10px;">Submit</button>    
+    </form>
+      
+</div>
+
+</div>  
+{% endblock content %}
